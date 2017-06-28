@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var httpRequest;
+	function getXMLHttpRequest() {
+		if (window.ActiveXObject) {//IE 라면
+			try {
+				return new ActiveXObject("Msxml2.XMLHTTP");//7이상
+			} catch (e1) {
+				try {
+					return new ActiveXObject("Microsoft.XMLHTTP");
+				} catch (e2) {
+					alert("지원하지 않는 브라우저입니다.");
+					return null;
+				}
+			}
+		} else if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		} else {
+			alert("지원하지 않는 브라우저입니다.");
+			return null;
+		}
+	}
+
+	function getTime() {
+		httpRequest = getXMLHttpRequest();
+		httpRequest.onreadystatechange = starttime;
+		httpRequest.open("GET", "time.jsp", true);
+		httpRequest.send(null);
+	}
+
+	function starttime() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				var time = httpRequest.responseText;
+				document.getElementById("ctime").innerHTML = time;
+				window.setTimeout("getTime()", 1000);
+			} else {
+				alert("문제발생 : " + httpRequest.status);
+			}
+		} else {
+			//document.getElementById("ctime").innerHTML = "로딩중..";
+		}
+	}
+
+	window.onload = function() {
+		getTime();
+	}
+</script>
+</head>
+<body>
+	<center>
+		현재 시간은
+		<div id="ctime"></div>
+		입니다. <input type="button" value="시간" onclick="javascript:getTime();">
+	</center>
+</body>
+</html>

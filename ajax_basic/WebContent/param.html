@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="/ajax_basic/js/myajax.js"></script>
+<script type="text/javascript">
+function sendParameter() {
+	var name = document.getElementById("name").value;
+	//alert(param);
+	var param = "name=" + encodeURI(name);//name=encodeURIComponent(안효인&강상궁)
+	sendRequest("/ajax_basic/ps", param, receiveParameter, "GET");
+}
+
+function receiveParameter() {
+	if(httpRequest.readyState == 4) {
+		if(httpRequest.status == 200) {
+			var txt = httpRequest.responseText;
+			document.getElementById("view").innerHTML = txt;
+		} else {
+			alert("문제발생 : " + httpRequest.status);
+		}
+	}
+}
+</script>
+</head>
+<body>
+<center>
+<h3>ajax를 이용한 파라미터전달.</h3>
+이름 <input type="text" name="name" id="name">
+<input type="button" value="전송" onclick="javascript:sendParameter();">
+<br><br>
+<div id="view"></div>
+</center>
+</body>
+</html>

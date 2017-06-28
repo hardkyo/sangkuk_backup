@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function getBookData(element) {
+		console.log(element.id + "들어왔다.");
+	}
+	
+	function clearData() {
+		console.log("나갔다.");
+	}
+	
+</script>
+</head>
+<body>
+	<h3>책목록</h3>
+	<table id = "booktable" border = "1" cellspacing = "0" cellpading = "2">
+		<tbody>
+			<tr>
+				<td id ="1" onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();" >
+					<img src = "/img/book1.jpg">
+				</td>
+			</tr>
+			<tr>
+				<td id ="2" onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();" >
+					<img src = "/img/book2.jpg">
+				</td>
+			</tr>
+			<tr>
+				<td id ="3"onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();" >
+					<img src = "/img/book3.jpg">
+				</td>
+			</tr>
+			<tr>
+				<td id = "4"onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();" >
+					<img src = "/img/book4.jpg">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

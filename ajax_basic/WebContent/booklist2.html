@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="/ajax_basic/js/myajax.js"></script>
+<script type="text/javascript">
+var dataDiv;
+var dataTable;
+var dataTableBody;
+var offsetEl;
+
+function initVars() {
+	dataTableBody = document.getElementById("bookDataBody");
+	dataTable = document.getElementById("bookData");
+	dataDiv = document.getElementById("popup");
+	// alert(dataTableBody + "   " + dataTable + "  " + dataDiv); 
+}
+
+
+function getBookData(element) {
+	offsetEl = element;
+	//console.log(element.id + "들어왔다.");
+	var param = "isbn=" + encodeURI(element.id);
+	sendRequest("/ajax_basic/bl", param, receiveParameter, "GET");
+}
+function receiveParameter() {
+	if(httpRequest.readyState == 4) {
+		if(httpRequest.status == 200) {
+			var bookxml = httpRequest.responseXML;
+			viewData(bookxml); //<book><title>제목</title><price>1000</price></book>
+		} else {
+			alert("문제발생 : " + httpRequest.status);
+		}
+	}
+}
+
+function viewData(bookdata) {
+	clearData();
+	setOffSet();
+	
+	var title = bookdata.getElementsByTagName("title")[0].firstChild.data; //<title>제목</title> 문자가져옴
+	var price = bookdata.getElementsByTagName("price")[0].firstChild.data; //<price>1000</price> 문자가져옴
+	// alert(title + " " + price )
+	var row1 = creatRow("제목 : " + title);
+	var row2 = creatRow("가격 : " + price + "원");
+	
+	dataTableBody.append(row1);
+	dataTableBody.append(row2);
+}
+
+function creatRow(data) {
+	var row = document.createElement("tr"); //<tr></tr>
+	var cell = document.createElement("td"); //<td></td>
+	cell.setAttribute("bgcolor", "#00ccff");
+	cell.setAttribute("border", "0");
+	
+	var textNode = document.createTextNode(data);
+	cell.appendChild(textNode);
+	row.appendChild(cell);
+	
+	return row;
+}
+
+
+function setOffSet() {
+	var top = offsetEl.offsetTop + offsetEl.offsetParent.offsetTop + 2 ;
+	var end = offsetEl.offsetWidth;
+	dataDiv.style.border="black 1px solid";
+	dataDiv.style.left = end + 15 + "px";
+	dataDiv.style.top = top  + "px";
+}
+
+function clearData() {
+	//console.log("나왔다.");
+	var len = dataTableBody.childNodes.length;
+	for(var i=len-1;i>=0;i--) {
+		dataTableBody.removeChild(dataTableBody.childNodes[i]);
+	}
+	dataDiv.style.border = "none";
+}
+
+window.onload=function() {
+	initVars();
+} 
+</script>
+</head>
+<body>
+<h3>책목록</h3>
+<table id="booktable" border="1" cellspacing="0" cellpadding="2">
+<tbody>
+<tr>
+	<td id="1" onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();">
+	<img src="/ajax_basic/img/book1.jpg" width="100">
+	</td>
+</tr>
+<tr>
+	<td id="2" onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();">
+	<img src="/ajax_basic/img/book2.jpg" width="100">
+	</td>
+</tr>
+<tr>
+	<td id="3" onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();">
+	<img src="/ajax_basic/img/book3.jpg" width="100">
+	</td>
+</tr>
+<tr>
+	<td id="4" onmouseover="javascript:getBookData(this);" onmouseout="javascript:clearData();">
+	<img src="/ajax_basic/img/book4.jpg" width="100">
+	</td>
+</tr>
+</tbody>
+</table>
+<div style="position: absolute;" id="popup">
+<table id="bookData" bgcolor="" border="0" cellspacing="2" cellpadding="2">
+	<tbody id="bookDataBody"></tbody>
+</table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
