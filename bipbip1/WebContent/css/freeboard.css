@@ -1,0 +1,174 @@
+
+
+div.container {
+    width: 100%;
+    height: 90%
+    /*border: 1px solid gray;*/
+}
+
+
+button {
+  /*margin: .2%;*/
+}
+
+div {
+  /*margin: .5%;*/
+  /*border: 1px solid black;*/
+}
+
+nav,header,.content,section,article,aside,footer {
+  margin: 0;
+  /*border: 2px solid green;*/
+}
+
+header, footer {
+  min-height: 70px;
+  margin: 3%;
+  margin-left: 1% auto;
+  margin-right: 1% auto;
+  padding: .5%;
+  color: black;
+  background-color: white;
+  text-align: center;
+  clear: both;
+}
+
+nav {
+  color: black;
+  background-color: white;
+  clear: left;
+  text-align: center;
+}
+
+header {
+  min-width: 660px;
+  margin-top: 30px;
+  margin-bottom: .3%;
+  border-bottom: 5px solid black;
+}
+
+.content {
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  height: auto;
+  padding: .1%;
+  vertical-align: middle;
+}
+
+section, aside {
+  width: 100%;
+  height: 100%;
+  margin: .2%;
+  float: left;
+}
+
+section {
+  width: 74.6%;
+  min-width: 650px;
+  /*height: 60.3em;*/
+  height: 1000px auto;
+  padding: 1%;
+}
+
+article {
+  height: 85%;
+  margin: 1%
+  padding: 1em;
+  overflow: hidden;
+}
+
+aside {
+  width: 24.6%;
+  min-width: 230px;
+  height: 30em auto;
+  padding: 10px;
+  padding-top: 2%;
+}
+
+footer {
+  min-width: 470px;
+}
+
+/*title bar*/
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+nav ul a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: green;
+  font-size: 20px;
+}
+
+
+/*section board*/
+div.board {
+}
+
+div.board-hot {
+}
+div.boardlist {
+}
+.subject {
+  padding-left: 3px;
+  /*border: 1px solid black;*/
+}
+.centercolumn {
+  text-align: center;
+}
+
+/*board searchblock*/
+div.inner {
+  margin: .2%;
+  display: inline-block;
+  vertical-align: middle;
+
+  border: 1px solid black;
+}
+
+div.search-container {
+  margin: 2px;
+  text-align:center;
+}
+
+div.search-wrapper {
+  margin: 2px;
+  padding: 2px;
+}
+
+div.writebtn-containter {
+  text-align:right;
+  margin: .2%;
+}
+
+div.writebtn-wrapper {
+  margin: .2%;
+  padding: .1%;
+}
+
+/*hot list*/
+.hotlist {
+  width:100%;
+  text-align:center;
+  font-size: 15px;
+}
+
+
+.ads {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  padding: 2%;
+}
+
+/*summer note*/
+#summernote {
+}
+

@@ -1,0 +1,63 @@
+http://local.daum.net/map/index.jsp?
+&sX=500899&sY=1121940
+&eX=501611&eY=1120655
+&sName=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%9A%A9%EC%82%B0%EA%B5%AC%20%ED%95%9C%EB%82%A8%EB%8F%99
+&eName=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%9A%A9%EC%82%B0%EA%B5%AC%20%ED%95%9C%EB%82%A8%EB%8F%99
+
+http://map.daum.net/
+/link/to/이름,위도,경도
+
+http://map.daum.net/
+/link/to/오라2동,387133,-9324
+				387133				-9324
+         var sec =   37.57319,126.96658
+http://map.daum.net/?&sX=33.45907179638846&sY=126.51437444638488&eX=33.450701&eY=126.570667&sNam=오라2동&eName=카카오
+
+http://map.daum.net/?&sX=-----&sY=-----&eX=-----&eY=-----&sNam=-----&eName=-----
+
+daummaps://route?sp=[출발지 좌표(WGS84)]&ep=[도착지 좌표(WGS84)]&by=[CAR|PUBLICTRASIT|FOOT]
+
+
+daummaps://route?sp=[33.45907179638846,126.51437444638488]&ep=[37.57319,126.96658]&by=[CAR]
+
+
+
+MT1 대형마트
+CS2 편의점
+SW8 지하철역
+AT4 관광명소
+AD5 숙박
+FD6 음식점
+HP8 병원
+PM9 약국
+
+<script type="text/javascript" src="<%=root%>/js/map.js"></script>
+
+<link rel="stylesheet" type="text/css" href="<%=root%>/css/mapCss.css" />
+
+
+
+              var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+             message += '경도는 ' + latlng.getLng() + ' 입니다';
+             // 화면에  현재 선택한 좌표를 띄우는 인터 텍스트 /////////////////////
+             // 삭제 요망 /////////////////////////////////////////
+             var resultDiv = document.getElementById('clickLatlng'); 
+             resultDiv.innerHTML = message;
+             ///////////////////////////////////////////////////
+             
+             
+             
+Tmap Javascript API 에서 지원하는 좌표계는 EPSG:3857, EPSG:4326, KATECH 입니다.
+① EPSG:3857 : Google Mercator 좌표계. EPSG:900913으로 사용되기도 합니다. 900913은 알파벳 GOOGLE과 비슷한 숫자의 조합으로 특별한 뜻을 가지고 있지는 않습니다.
+② EPSG:4326 : WGS84 좌표계. 구글 Earth가 사용하고 있는 좌표입니다.
+③ KATECH : 국내에서 자동차 내비게이션 시스템 용으로 개발된 좌표계로 KATEC 또는 KATECH 으로 표기하고 있습니다. 과거 국내 포탈 지도 서비스에서 대부분 이 좌표계를 사용했으며 현재의 지도 서비스는 EPSG:3857또는 EPSG:4326을 기본으로 하는 추세 입니다.
+Tmap Javascript API에서는 각 좌표간의 변환 API를 제공하고 있습니다. API의 자세한 사용방법은 API문서의 Tmap.LonLat 클래스의 transform 함수를 참고하세요.
+             
+             
+             
+             
+             
+             
+             
+             
+             

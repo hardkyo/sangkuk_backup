@@ -1,4 +1,4 @@
-package com.kitri.ajax;
+package ajax_basic;
 
 import java.io.IOException;
 import java.io.PrintWriter;
